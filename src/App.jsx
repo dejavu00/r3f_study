@@ -1,10 +1,12 @@
 import { Canvas } from "@react-three/fiber";
-import { Index } from "./components/Index";
+// import { Index } from "./pages/Index";
+import { AvatorPage } from "./pages/AvatorPage";
 
 function App() {
   return (
     <Canvas shadows camera={{ position: [0, 0, 10], fov: 30 }}>
-      <Index />
+       {/* <color attach="background" args={["#ececec"]} /> */}
+      <AvatorPage />
     </Canvas>
   );
 }

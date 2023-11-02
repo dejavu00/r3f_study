@@ -12,9 +12,9 @@ import { easing } from 'maath';
 
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import Fish from './Fish';
-import Ninjia from './Ninjia';
-import Pigeon from './Pigeon';
+import Fish from '../components/Fish';
+import Ninjia from '../components/Ninjia';
+import Pigeon from '../components/Pigeon';
 import { useState, useRef, useEffect } from 'react';
 export const Index = () => {
   const controlsRef = useRef();
