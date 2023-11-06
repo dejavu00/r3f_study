@@ -1,25 +1,41 @@
 import { useState, useRef, useEffect } from 'react';
-import { Environment, CameraControls } from '@react-three/drei';
+import {
+  Environment,
+  OrbitControls,
+  ContactShadows,
+  Sky
+} from '@react-three/drei';
 import { Avatar } from '../components/Avator';
-export const AvatorPage = () => {
-  const controlsRef = useRef();
+import { useControls } from 'leva';
 
+export const AvatorPage = () => {
   return (
     <>
-      <ambientLight intensity={0.5} />
       <Environment preset="sunset" />
-      <CameraControls
-        ref={controlsRef}
-        maxPolarAngle={Math.PI / 2}
-        minPolarAngle={Math.PI / 6}
-      />
+      <Sky />
+      <OrbitControls />
+
       <group position-y={-1}>
+        <ContactShadows
+          opacity={1}
+          scale={10}
+          blur={1}
+          far={10}
+          resolution={256}
+          color="#333"
+        />
+
         <Avatar />
+
+        <mesh position-y={-0.6}>
+          <meshStandardMaterial color={'white'} />
+          <boxGeometry />
+        </mesh>
+        <mesh rotation-x={-Math.PI / 2} position-y={-1}>
+          <meshStandardMaterial color={'white'} />
+          <planeGeometry args={[5, 5]} />
+        </mesh>
       </group>
-      {/* <mesh>
-        <meshNormalMaterial/>
-        <boxGeometry/>
-      </mesh> */}
     </>
   );
 };
