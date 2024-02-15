@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 export function ScrollManager(props) {
-  const { onSelectionChange, section, menOpened } = props;
+  const { onSelectionChange, section } = props;
   const prevOffset = useRef(0);
   const isAnimation = useRef(false);
   const data = useScroll();
@@ -39,21 +39,11 @@ export function ScrollManager(props) {
       onSelectionChange(1);
     }
 
-    if (data.offset < prevOffset.current) {
+    if (data.offset < prevOffset.current && data.offset <  1 / (data.pages - 1)) {
       console.log(' 向上划动');
       // 向上划动
       onSelectionChange(0);
     }
     prevOffset.current = data.offset;
   });
-
-  //   const opacity = useTransform(
-  //   cameraPositionX,
-  //   // Map x from these values:
-  //   [0, 3],
-  //   // Into these values:
-  //   [-4, 1]
-  // )
-
-  
 }

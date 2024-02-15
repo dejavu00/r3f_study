@@ -15,7 +15,7 @@ const Section = props => {
       }}
       whileInView={{
         opacity: 1,
-        y: 0,
+        y: 0
       }}
     >
       {children}
@@ -28,10 +28,6 @@ export const Introduce = () => {
     <div className="flex flex-col items-center w-screen">
       <AboutSection />
       <SkillsSection />
-      <Section>
-        <h1>Projects</h1>
-      </Section>
-      {/* <ContactSection /> */}
     </div>
   );
 };
@@ -40,7 +36,7 @@ const AboutSection = () => {
   return (
     <Section>
       <h1 className="text-6xl font-extrabold leading-snug">
-        Hi, I'm
+        Hi, I am
         <br />
         <span className="bg-white px-1 italic">Dejavu</span>
       </h1>
@@ -53,12 +49,14 @@ const AboutSection = () => {
         whileInView={{
           opacity: 1,
           y: 0,
-        
+          transition: {
+            duration: 1,
+          }
         }}
       >
         A front-end web devloper, lived in ChengDu, China.
         <br />
-        let me teach you  how to build 3D interactive projects
+        let me teach you how to build 3D interactive projects
       </motion.p>
       <motion.button
         className={`bg-indigo-600 text-white py-4 px-8 
@@ -123,12 +121,12 @@ const SkillsSection = () => {
   return (
     <Section>
       <motion.div whileInView={'visible'}>
-        <h2 className="text-5xl font-bold">Skills</h2>
+        <h2 className="text-5xl font-bold text-white">Skills</h2>
         <div className=" mt-8 space-y-4">
           {skills.map((skill, index) => (
             <div className="w-64" key={index}>
               <motion.h3
-                className="text-xl font-bold text-gray-800"
+                className="text-xl font-bold text-white"
                 initial={{
                   opacity: 0
                 }}
@@ -140,7 +138,6 @@ const SkillsSection = () => {
                     delay: 1 + index * 0.2
                   }
                 }}
-               
               >
                 {skill.title}
               </motion.h3>
@@ -167,12 +164,12 @@ const SkillsSection = () => {
           ))}
         </div>
         <div>
-          <h2 className="text-5xl font-bold mt-10">Languages</h2>
+          <h2 className="text-5xl font-bold mt-10 text-white">Languages</h2>
           <div className=" mt-8 space-y-4">
             {languages.map((lng, index) => (
               <div className="w-64" key={index}>
                 <motion.h3
-                  className="text-xl font-bold text-gray-800"
+                  className="text-xl font-bold text-white"
                   initial={{
                     opacity: 0
                   }}
@@ -215,4 +212,3 @@ const SkillsSection = () => {
     </Section>
   );
 };
-
